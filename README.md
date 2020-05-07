@@ -65,4 +65,4 @@ Links to resources that inspired and/or assisted the project and their use.
 **Use**: Trying to create a do while loop to prompt the user to see more data. In the end a simple while loop with an initial question before-hand was used instead.
 
 ### Project Status
-This project is still active and will be refactored to make the code more readable and more efficient where possible. There are processing time calculators within each function to monitor these performance improvements. Further data exploration and predictive analysis are possible extensions to this project. 
+This project is still active and will be refactored to make the code more readable and more efficient where possible. There are processing time calculators within each function to monitor these performance improvements. Further data exploration and predictive analysis are possible extensions to this project. Additional libraries such as matplotlib and seaborn could be imported to give a graphical representation of the data.
