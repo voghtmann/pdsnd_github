@@ -104,16 +104,16 @@ def load_data(city, month, day):
     #print(df.shape)
     #print(df.isnull().sum())
     
+    #Give user the option to display data
     display = 5
     see_data = ' '
-    #see_data = input('\nSee the first 5 rows of data - yes or no?\n').lower()
-    
-    #Give user the option to display data
-    while see_data != 'no': 
-      print('\nSee the first {} rows of data?'.format(display))
-      see_data = input('....Enter yes or no to continue?\n').lower() 
-      print(df.head(display))
-      display += 5
+    see_data = input('\nSee the first 5 rows of data - yes or no?\n').lower()
+    if see_data != 'no':
+        while see_data != 'no':
+            print(df.head(display))
+            print('\nSee the first {} rows of data?'.format(display + 5))
+            see_data = input('....Enter yes or no to continue?\n').lower() 
+            display += 5
  
     return df
 
@@ -128,13 +128,13 @@ def time_stats(df):
     
     common_month = df['month'].mode()[0]
 
-    print('Most common month:', common_month)
+    print('Most common month: ', common_month)
     
     # TO DO: display the most common day of week
     
     common_day = df['day_of_week'].mode()[0]
 
-    print('Most common day of the week:', common_day)
+    print('\nMost common day of the week: ', common_day)
 
 
     # TO DO: display the most common start hour
@@ -143,7 +143,7 @@ def time_stats(df):
     
     common_hour = df['hour'].mode()[0]
 
-    print('Most common starting hour (in the 24 hour clock):', common_hour)
+    print('\nThe most common starting hour is {} based on the 24 hour clock.'.format(common_hour))
 
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -160,14 +160,14 @@ def station_stats(df):
     
     common_start_station = df['Start Station'].mode()[0]
 
-    print('Station(s) most frequently started from:', common_start_station)
+    print('\nStation(s) most frequently started from:', common_start_station)
 
 
     # TO DO: display most commonly used end station
     
     common_end_station = df['End Station'].mode()[0]
 
-    print('Station(s) most frequently ended at:', common_end_station)
+    print('\nStation(s) most frequently ended at:', common_end_station)
 
 
     # TO DO: display most frequent combination of start station and end station trip
@@ -175,7 +175,7 @@ def station_stats(df):
     df['routes'] = df['Start Station'] + ' and ' +  df['End Station']
     
     common_route_stations = df['routes'].mode()[0]
-    print('The route between stations {} is most common.'.format(common_route_stations))
+    print('\nThe route between stations {} is most common.'.format(common_route_stations))
     
     
     print("\nThis took %s seconds." % (time.time() - start_time))
