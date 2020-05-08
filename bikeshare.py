@@ -104,16 +104,16 @@ def load_data(city, month, day):
     #print(df.shape)
     #print(df.isnull().sum())
     
+    #Give user the option to display data
     display = 5
     see_data = ' '
-    #see_data = input('\nSee the first 5 rows of data - yes or no?\n').lower()
-    
-    #Give user the option to display data
-    while see_data != 'no': 
-      print('\nSee the first {} rows of data?'.format(display))
-      see_data = input('....Enter yes or no to continue?\n').lower() 
-      print(df.head(display))
-      display += 5
+    see_data = input('\nSee the first 5 rows of data - yes or no?\n').lower()
+    if see_data != 'no':
+        while see_data != 'no':
+            print(df.head(display))
+            print('\nSee the first {} rows of data?'.format(display + 5))
+            see_data = input('....Enter yes or no to continue?\n').lower() 
+            display += 5
  
     return df
 
